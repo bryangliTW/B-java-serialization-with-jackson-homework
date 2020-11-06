@@ -1,5 +1,7 @@
 package com.thoughtworks.capability.gtb.vo;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,5 +14,10 @@ public class PersonVo {
   private String id;
   private Integer age;
   private String name;
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String hobby;
+
+  public Integer getAge() {
+    return this.age == null ? 0 : this.age;
+  }
 }
